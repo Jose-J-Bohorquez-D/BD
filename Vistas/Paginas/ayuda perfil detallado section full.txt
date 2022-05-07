@@ -1,0 +1,50 @@
+ayuda perfil detallado section full
+
+<!--inicio seccion de detalles del cliente -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
+
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <h3 class="profile-username text-center">Nina Mcintire</h3>
+                <p class="text-muted text-center">Software Engineer</p>
+                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Activity</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+
+
+                  <div class="active tab-pane" id="activity">
+
+                  </div>
+
+                  <div class="tab-pane" id="timeline">
+
+                  </div>
+
+                  <div class="tab-pane" id="settings">
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!--fin seccion de detalles del cliente -->

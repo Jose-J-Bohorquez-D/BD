@@ -1,0 +1,10 @@
+cambiar la vista de detallles del vehiculo por la nueva vista
+
+terminar de solucionar la vista de agregar servicios a cada vehiculo
+
+intentamos conexion con github desde otro pc con la misma llave ssh
+
+resubimos el proyecto para ajustar detalles y hacer mejoras
+
+reconectamos el proyecto ya que nos dio conflictos con el material de apoyo 
+ya que los archibos son demasiado pesados
