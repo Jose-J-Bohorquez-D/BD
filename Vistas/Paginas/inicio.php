@@ -91,7 +91,7 @@
                 <h4>Sales Report</h4><br><br>
               </div>
               <div class="icon">
-               <i class="fa fa-pie-chart" aria-hidden="true"></i>
+                <i class="fas fa-chart-pie"></i>
               </div>
             </div>
             </a>
