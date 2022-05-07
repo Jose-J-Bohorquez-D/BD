@@ -10,12 +10,12 @@ Registro de nuevo Servicio
 	static public function mdlCrearServicio($datosMdl,$tabla){
 
 		$stmt=ConexionBD::conectarbd()->prepare(
-			"INSERT INTO $tabla(nombre_servicio,valor_servicio,tiempo_servicio)
-			VALUES(:nombre_servicio, :valor_servicio, :tiempo_servicio)");
+			"INSERT INTO $tabla(nombre_servicio/*,valor_servicio,tiempo_servicio*/)
+			VALUES(:nombre_servicio/*, :valor_servicio, :tiempo_servicio*/)");
 
-		$stmt->bindParam(":nombre_servicio",$datosMdl["name"]);
+		$stmt->bindParam(":nombre_servicio",$datosMdl["name"]);/*
 		$stmt->bindParam(":valor_servicio",$datosMdl["val"]);
-		$stmt->bindParam(":tiempo_servicio",$datosMdl["time"]);
+		$stmt->bindParam(":tiempo_servicio",$datosMdl["time"]);*/
 
 		if ($stmt->execute()) {
 
@@ -62,14 +62,16 @@ Actualizar Servicio
 ==============================*/
 	static public function mdlActualizarServicio($datosMdl,$tabla){
 
+		#$stmt=ConexionBD::conectarbd()->prepare("UPDATE $tabla SET nombre_servicio= :ns, valor_servicio= :vs, tiempo_servicio=:ts WHERE id_servicio= :idS");
+
 		$stmt=ConexionBD::conectarbd()->prepare(
 			"UPDATE $tabla 
-			SET nombre_servicio= :ns, valor_servicio= :vs, tiempo_servicio= :ts
+			SET nombre_servicio= :ns 
 			WHERE id_servicio= :idS");
 
-		$stmt->bindParam(":ns",$datosMdl["ens"]);
+		$stmt->bindParam(":ns",$datosMdl["ens"]);/*
 		$stmt->bindParam(":vs",$datosMdl["evs"]);
-		$stmt->bindParam(":ts",$datosMdl["ets"]);
+		$stmt->bindParam(":ts",$datosMdl["ets"]);*/
 		$stmt->bindParam(":idS",$datosMdl["ide"]);
 
 		if ($stmt->execute()) {

@@ -46,7 +46,7 @@
           </div>
 
           <div class="col-4">
-            <a href="index.php?action=clientes">
+            <a href="index.php?action=servicios">
               <div class="small-box bg-secondary">
               <div class="inner"><br><br>
                 <h4>Servicios</h4><br><br>

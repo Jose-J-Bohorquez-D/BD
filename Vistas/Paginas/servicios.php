@@ -57,13 +57,14 @@ if (isset($_GET['action'])) {
 ?>
   </div>
 </div>
-        <table id="example1" class="table table-dark table-hover  table-borderless table-sm">
+        <table id="example1" class="table table-dark table-hover table-borderless table-sm text-center">
           <thead>
           <tr>
-            <th>ACTION</th>
-            <th>NAME SERVICE</th>
+            <th>EDIT</th>
+            <th>DELET</th>
+            <th>NAME SERVICE</th> <!--
             <th>VALUE</th>
-            <th>SERVICE TIME</th>
+            <th>SERVICE TIME</th>-->
           </tr>
           </thead>
           <tbody>
@@ -96,7 +97,7 @@ if (isset($_GET['action'])) {
 
 <!-- Modal -->
 <div class="modal fade" id="crearServicio" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Create New Service</h5>
@@ -107,7 +108,7 @@ if (isset($_GET['action'])) {
           <label>Name for the Service: </label>
           <input type="text" name="nameServ" placeholder="Type a name for the service" class="form-control" required><br>
 
-          <label>Assign a Value to the Service: </label>
+          <!--<label>Assign a Value to the Service: </label>
           <input type="number" name="valServ" placeholder="Write the value of the service" class="form-control" required><br>
 
 
@@ -118,7 +119,7 @@ if (isset($_GET['action'])) {
             <option value="3 months">3 months</option>
             <option value="6 months">6 months</option>
             <option value="1 year">1 Year</option>
-          </select><br>
+          </select><br>-->
 
       </div>
       <div class="modal-footer">

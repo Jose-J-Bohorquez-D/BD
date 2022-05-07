@@ -205,11 +205,28 @@ if (isset($_GET['action'])) {
   if ($_GET['action']=="sAoK") {
     echo '
         <script>
-        Swal.fire(
-                  "nice job!",
-                  "successfully assigned service",
-                  "success"
-                  )
+
+        let timerInterval
+        Swal.fire({
+          title: "assigning service!",
+          html: "In a moment it will be ready <b></b>",
+          timer: 1000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector("b")
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+            history.back()
+          }
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("I was closed by the timer")
+          }
+        })
+
         </script>
         ';
   }
