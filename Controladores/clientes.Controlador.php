@@ -121,19 +121,19 @@ Editar Clientes
 <br>
 
 <label>Address:</label>
-<input type="text" name="ediDireccion" value="'.$respuesta['direccion'].'" placeholder="write the address" class="form-control" required>
+<input type="text" name="ediDireccion" value="'.$respuesta['direccion'].'" placeholder="write the address" class="form-control" >
 <br>
 
 <label>LIC EMP # :</label>
-<input type="number" name="ediNLicEmp" value="'.$respuesta['numero_lic_emp'].'" placeholder="write LIC EMP #" class="form-control" required>
+<input type="text" name="ediNLicEmp" value="'.$respuesta['numero_lic_emp'].'" placeholder="write LIC EMP #" class="form-control" >
 <br>
 
 <label>Phone 1:</label>
-<input type="number" name="ediTelefono1" value="'.$respuesta['tel1'].'" placeholder="write phone 1" class="form-control" required>
+<input type="number" name="ediTelefono1" value="'.$respuesta['tel1'].'" placeholder="write phone 1" class="form-control" >
 <br>
 
 <label>Phone 2:</label>
-<input type="number" name="ediTelefono2" value="'.$respuesta['tel2'].'" placeholder="write phone 2" class="form-control" required>
+<input type="number" name="ediTelefono2" value="'.$respuesta['tel2'].'" placeholder="write phone 2" class="form-control" >
 <br>
 
 <label>E-mail 1:</label>
@@ -141,19 +141,19 @@ Editar Clientes
 <br>
 
 <label>E-mail 2:</label>
-<input type="email" name="ediCorreo2" value="'.$respuesta['email2'].'" placeholder="write E-mail 2" class="form-control" required>
+<input type="email" name="ediCorreo2" value="'.$respuesta['email2'].'" placeholder="write E-mail 2" class="form-control" >
 <br>
 
 <label>ID CGPE:</label>
-<input type="number" name="ediIdCgpe" value="'.$respuesta['id_cgpe'].'" placeholder="write ID CGPE" class="form-control" required>
+<input type="number" name="ediIdCgpe" value="'.$respuesta['id_cgpe'].'" placeholder="write ID CGPE" class="form-control" >
 <br>
 
 <label># IFTA:</label>
-<input type="number" name="ediNIfta" value="'.$respuesta['ifta_number'].'" placeholder="write IFTA #" class="form-control" required>
+<input type="text" name="ediNIfta" value="'.$respuesta['ifta_number'].'" placeholder="write IFTA #" class="form-control" >
 <br>
 
 <label>TAX ID / # EIN:</label>
-<input type="number" name="ediTaxId" value="'.$respuesta['tax_id_number_ein'].'" placeholder="write TAX ID/EIN #" class="form-control" required>
+<input type="text" name="ediTaxId" value="'.$respuesta['tax_id_number_ein'].'" placeholder="write TAX ID/EIN #" class="form-control" >
 <br>
 			';
 			

@@ -123,19 +123,19 @@ $verClientes->ctrMostrarClientes();
           <br>
 
           <label>Address:</label>
-          <input type="text" name="direccion" placeholder="write the address" class="form-control" required>
+          <input type="text" name="direccion" placeholder="write the address" class="form-control">
           <br>
 
           <label>LIC EMP #:</label>
-          <input type="number" name="nLicEmp" placeholder="write LIC EMP #" class="form-control" required>
+          <input type="text" name="nLicEmp" placeholder="write LIC EMP #" class="form-control" >
           <br>
 
           <label>Phone 1:</label>
-          <input type="number" name="telefono1" placeholder="write phone 1" class="form-control" required>
+          <input type="number" name="telefono1" placeholder="write phone 1" class="form-control" >
           <br>
 
           <label>Phone 2:</label>
-          <input type="number" name="telefono2" placeholder="write phone 2" class="form-control" required>
+          <input type="number" name="telefono2" placeholder="write phone 2" class="form-control" >
           <br>
 
           <label>E-mail 1:</label>
@@ -143,19 +143,19 @@ $verClientes->ctrMostrarClientes();
           <br>
 
           <label>E-mail 2:</label>
-          <input type="email" name="correo2" placeholder="write E-mail 2" class="form-control" required>
+          <input type="email" name="correo2" placeholder="write E-mail 2" class="form-control" >
           <br>
 
           <label>ID CGPE:</label>
-          <input type="number" name="idCgpe" placeholder="write ID CGPE" class="form-control" required>
+          <input type="number" name="idCgpe" placeholder="write ID CGPE" class="form-control" >
           <br>
 
           <label># IFTA:</label>
-          <input type="number" name="nIfta" placeholder="write IFTA #" class="form-control" required>
+          <input type="text" name="nIfta" placeholder="write IFTA #" class="form-control" >
           <br>
 
           <label>TAX ID / # EIN:</label>
-          <input type="number" name="taxId" placeholder="write TAX ID/EIN #" class="form-control" required>
+          <input type="text" name="taxId" placeholder="write TAX ID/EIN #" class="form-control" >
           <br>
 
       </div>
