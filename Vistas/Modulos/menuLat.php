@@ -49,8 +49,9 @@
 
         <li class="nav-item">
           <a href="#" class="nav-link">
-            <i class="nav-icon fa fa-solid fa-chart-pie" aria-hidden="true"></i>
-            <p>Sales Reports</p>
+            <i class="nav-icon fa fa-thin fa-capsules" aria-hidden="true"></i>
+            <!-- <i class="nav-icon fa fa-thin fa-wine-bottle" aria-hidden="true"></i> -->
+            <p>Alcohol And Drugs</p>
           </a>
         </li>
 
@@ -58,6 +59,13 @@
           <a href="index.php?action=vehiculos" class="nav-link">
             <i class="nav-icon fa fa-truck" aria-hidden="true"></i>
             <p>Trucks</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fa fa-solid fa-chart-pie" aria-hidden="true"></i>
+            <p>Sales Reports</p>
           </a>
         </li>
 

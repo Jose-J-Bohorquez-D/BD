@@ -34,12 +34,25 @@
 
           <div class="col-4">
             <a href="index.php?action=clientes">
-              <div class="small-box bg-info">
+              <div class="small-box bg-primary">
               <div class="inner"><br><br>
                 <h4>Customers</h4><br><br>
               </div>
               <div class="icon">
                  <i class="fa fa-building" aria-hidden="true"></i>
+              </div>
+            </div>
+            </a>
+          </div>
+
+          <div class="col-4">
+            <a href="index.php?action=clientes">
+              <div class="small-box bg-secondary">
+              <div class="inner"><br><br>
+                <h4>Servicios</h4><br><br>
+              </div>
+              <div class="icon">
+                <i class="fa fa-thin fa-handshake"></i>
               </div>
             </div>
             </a>
@@ -59,6 +72,19 @@
           </div>
 
           <div class="col-4">
+            <a href="index.php?action=usuarios">
+              <div class="small-box bg-danger">
+              <div class="inner"><br><br>
+                <h4>Alcohol And Drugs</h4><br><br>
+              </div>
+              <div class="icon">
+                <i class="fa fa-thin fa-capsules"></i>
+              </div>
+            </div>
+            </a>
+          </div>
+
+          <div class="col-4">
             <a href="index.php?action=vehiculos">
               <div class="small-box bg-warning">
               <div class="inner"><br><br>
@@ -71,6 +97,7 @@
             </a>
           </div>
 
+          <!--
           <div class="col-4">
             <a href="index.php?action=clientes">
               <div class="small-box bg-danger">
@@ -82,11 +109,11 @@
               </div>
             </div>
             </a>
-          </div>
+          </div> -->
 
           <div class="col-4">
             <a href="index.php">
-              <div class="small-box bg-primary">
+              <div class="small-box bg-info">
               <div class="inner"><br><br>
                 <h4>Sales Report</h4><br><br>
               </div>
