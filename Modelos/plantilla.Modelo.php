@@ -16,7 +16,10 @@ class Paginas{
         $enlacesModelo== "editarVehiculo"|| 
         $enlacesModelo== "clienteDetalles"|| 
         $enlacesModelo== "perfilVehiculo"|| 
+        $enlacesModelo== "alcoholydrogas"|| 
         $enlacesModelo== "editarServicioAsignado"||
+        $enlacesModelo== "tablaGeneralDeServicios"||
+        $enlacesModelo== "eliminarServicioAsignadoVehiculo"||
         $enlacesModelo== "vehiculos") {
 
           $newModulo="Vistas/Paginas/".$enlacesModelo.".php";
@@ -127,6 +130,18 @@ class Paginas{
     elseif ($enlacesModelo=="updateDtsCambioServicio") {
 
       $newModulo="Vistas/Paginas/clientes.php";
+
+    }
+
+    elseif ($enlacesModelo=="servAsigActuOk") {
+
+      $newModulo="Vistas/Paginas/inicio.php";
+
+    }
+
+    elseif ($enlacesModelo=="delServAsigVehiOk") {
+
+      $newModulo="Vistas/Paginas/inicio.php";
 
     }
 

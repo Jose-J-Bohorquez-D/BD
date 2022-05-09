@@ -19,14 +19,13 @@
       <div class="row">
         <div class="col-sm-10">
           <div class="container-responsive">
-
-
 <table id="example1" class="table table-dark table-hover table-sm table-borderless text-nowrap">
   <thead>
     <tr>
       <th>SERVICE</th>
       <th>FROM</th>
       <th>UNTIL</th>
+      <th>VALUE</th>
       <th>ACTION</th>
     </tr>
   </thead>
@@ -74,7 +73,7 @@
 </select><br>
 <input type="date" name="fechaIni" class="form-control"><br>
 <input type="date" name="fechaFin" class="form-control"><br>
-        
+<input type="number" name="valServ" class="form-control" placeholder="Assign a value to the service USD" required>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

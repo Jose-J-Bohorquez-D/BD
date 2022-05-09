@@ -74,6 +74,7 @@ class ControladorPerfilVehiculo{
           <td>'.$value["nombre_servicio"].'</td>
           <td>'.$value["fecha_inicio_serv"].'</td>
           <td>'.$value["fecha_fin_serv"].'</td>
+          <td>'.$value["valor_servicio_asignado"].'</td>
           <td>
 <a href="index.php?action=editarServicioAsignado&idEditSer='.$value["id_asignacion"].'" class="btn btn-warning btn-xs">
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -81,7 +82,7 @@ class ControladorPerfilVehiculo{
   <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
 </svg>
 </a>
-<a href="index.php?action=clientes&idDeletCli='.$value["id_vehiculo"].'" class="btn btn-danger btn-xs">
+<a href="index.php?action=eliminarServicioAsignadoVehiculo&idElimServAsigVehi='.$value["id_asignacion"].'" class="btn btn-danger btn-xs">
 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
   <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -143,10 +144,15 @@ class ControladorPerfilVehiculo{
 
     public function ctrAsignarServicio(){
         if (isset($_POST['idVehiAsigServ'])) {
+
+            $filtro1=str_replace(',', '', $_POST['valServ']);
+            $filtro2=str_replace('.', '', $filtro1);
+
             $datosCtr=array("idV"=>$_POST['idVehiAsigServ'],
                        "serv"=>$_POST['serv'],
                        "fechaIni"=>$_POST['fechaIni'],
-                       "fechaFin"=>$_POST['fechaFin']);
+                       "fechaFin"=>$_POST['fechaFin'],
+                       "valServ"=>number_format($filtro2,2));
             $respuesta=ModeloPerfilVehiculo::mdlAsignarServicio("servicios_asignados_vehiculos",$datosCtr);
             #var_dump($respuesta);//testeo
                     if ($respuesta == "cpz") {
@@ -204,6 +210,7 @@ class ControladorPerfilVehiculo{
             echo '
 <input type="date" name="editFechaIni" value="'.$respuesta["fecha_inicio_serv"].'" class="form-control"><br>
 <input type="date" name="editFechaFin" value="'.$respuesta["fecha_fin_serv"].'" class="form-control"><br>
+<input type="text" name="editValServ" value="'.$respuesta["valor_servicio_asignado"].'" class="form-control" placeholder="Assign a value to the service USD" required>
             ';
 
         }
@@ -221,28 +228,67 @@ class ControladorPerfilVehiculo{
         if (isset($_GET['idEditSer'])) {
             $datoIdS=$_GET['idEditSer'];
             $respuesta=ModeloPerfilVehiculo::mdlMostrarServiciosEditar("servicios_asignados_vehiculos",$datoIdS);
-            echo '<input type="hidden" name="idVehiAsigServ" value="'.$datoIdS.'">';
+            echo '<input type="hidden" name="idServAsigVehi" value="'.$datoIdS.'">';
         }
     }
 
     public function ctrActualizarServicioAsignado(){
-        if (isset($_POST['edtServ'])) {
-            $datosCtr=array("idEditServ"=>$_POST['idEditSer'],
-                            "sEs"=>$_POST['edtServ'],
+        if (isset($_POST['edtServAsig'])) {
+            $filtro1=str_replace(',', '', $_POST['editValServ']);
+            $filtro2=str_replace('.', '', $filtro1);
+            $datosCtr=array("idServAsigVehiParaEditar"=>$_POST['idServAsigVehi'],
+                            "eSa"=>$_POST['edtServAsig'],
                             "eFi"=>$_POST['editFechaIni'],
-                            "eFf"=>$_POST['editFechaFin']);
+                            "eFf"=>$_POST['editFechaFin'],
+                            "editValServAsig"=>number_format($filtro2,2));
+            #var_dump($datosCtr);
             $respuesta=ModeloPerfilVehiculo::mdlActualizarServicioAsignado("servicios_asignados_vehiculos",$datosCtr);
-            echo $respuesta;
+            #echo $respuesta;
+            if ($respuesta == "cpz") {
+            echo '
+            <script type="text/javascript">
+                window.location.href = "index.php?action=servAsigActuOk";
+            </script>
+            ';
+            }else{
+                echo '
+                  <script>
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "something went wrong, contact support!"
+                        })
+                </script>
+                ';
+                    
+            }
         }
     }
 
-
-
-
-
-
-
-
+public function ctrEliminarServicioAsignadoVehiculo(){
+if (isset($_GET["idElimServAsigVehi"])) {
+$datoCtr=$_GET["idElimServAsigVehi"];
+#echo '<h1>'.$datoCtr.'</h1>';
+$respuesta=ModeloPerfilVehiculo::mdlEliminarServicioAsignadoVehiculo("servicios_asignados_vehiculos",$datoCtr);
+echo $respuesta;
+    if ($respuesta == "cpz") {
+        echo '
+        <script type="text/javascript">
+        window.location.href = "index.php?action=delServAsigVehiOk";
+        </script>
+        ';
+        }else{
+        echo '
+        <script>
+        Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "something went wrong, contact support!"
+        })
+        </script>
+        ';
+        }
+    }
 }
- ?>
 
+}?>

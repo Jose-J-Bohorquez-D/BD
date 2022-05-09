@@ -72,7 +72,7 @@
           </div>
 
           <div class="col-4">
-            <a href="index.php?action=usuarios">
+            <a href="index.php?action=alcoholydrogas">
               <div class="small-box bg-danger">
               <div class="inner"><br><br>
                 <h4>Alcohol And Drugs</h4><br><br>
@@ -131,3 +131,100 @@
     </div>
   </div>
 </section>
+
+ <?php /*
+if (isset($_GET['action'])) {
+  if ($_GET['action']=="servAsigActuOk") {
+    echo '
+    <script>
+      Swal.fire(
+      "Nice job! success upgraded service",
+      "check the route clients/DetailsClient/trucks/ShowServices and check the update",
+      "success"
+      )
+    </script>
+    ';
+  }
+}*/
+
+if (isset($_GET['action'])) {
+  if ($_GET['action']=="updateDtsCambioServicio") {
+    echo '
+        <script>
+        Swal.fire(
+                  "nice job!",
+                  "successfully assigned service",
+                  "success"
+                  )
+        </script>
+        ';
+  }
+}
+?>
+
+<?php
+if (isset($_GET['action'])) {
+  if ($_GET['action']=="servAsigActuOk") {
+    echo '
+        <script>
+
+        let timerInterval
+        Swal.fire({
+          title: "assigning service!",
+          html: "In a moment it will be ready <b></b>",
+          timer: 2500,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector("b")
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+            history.back(-2)
+          }
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("I was closed by the timer")
+          }
+        })
+
+        </script>
+        ';
+  }
+}
+
+if (isset($_GET['action'])) {
+  if ($_GET['action']=="delServAsigVehiOk") {
+    echo '
+        <script>
+
+        let timerInterval
+        Swal.fire({
+          title: "removing assigned service!",
+          html: "In a moment it will be ready <b></b>",
+          timer: 2500,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector("b")
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+            history.back(-2)
+          }
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("I was closed by the timer")
+          }
+        })
+
+        </script>
+        ';
+  }
+}
+
+
+
+?>

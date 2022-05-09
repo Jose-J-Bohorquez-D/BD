@@ -8,6 +8,8 @@ require_once("Controladores/clientes.Controlador.php");
 require_once("Controladores/vehiculos.Controlador.php");
 require_once("Controladores/clientesDetalle.Controlador.php");
 require_once("Controladores/perfilVehiculo.Controlador.php");
+require_once("Controladores/alcoholydrogas.Controlador.php");
+require_once("Controladores/tablaGeneralServicios.Controlador.php");
 
 require_once("Modelos/plantilla.Modelo.php");
 require_once("Modelos/perfiles.Modelo.php");
@@ -17,6 +19,8 @@ require_once("Modelos/clientes.Modelo.php");
 require_once("Modelos/vehiculos.Modelo.php");
 require_once("Modelos/clientesDetalle.Modelo.php");
 require_once("Modelos/perfilVehiculo.Modelo.php");
+require_once("Modelos/alcoholydrogas.Modelo.php");
+require_once("Modelos/tablaGeneralServicios.Modelo.php");
 
 
 $plantilla=new MvcControlador;
