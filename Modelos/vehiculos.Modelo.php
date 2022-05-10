@@ -52,7 +52,7 @@ class ModeloVehiculos extends ConexionBD{
 		$stmt->bindParam(":modelo",			$datosMdl["eM"]);
 		$stmt->bindParam("year",			$datosMdl["eY"]);
 		$stmt->bindParam(":vin_numer",		$datosMdl["eVi"]);
-		$stmt->bindParam(":costo_vehiculo",	number_format($datosMdl["eVa"]),2);
+		$stmt->bindParam(":costo_vehiculo",	$datosMdl["eVa"]);
 		$stmt->bindParam(":dote_number",	$datosMdl["eD"]);
 		$stmt->bindParam(":pendiente1",		$datosMdl["ePe1"]);
 		$stmt->bindParam(":pendiente2",		$datosMdl["ePe2"]);

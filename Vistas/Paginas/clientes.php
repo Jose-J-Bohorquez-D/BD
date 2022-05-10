@@ -210,7 +210,7 @@ if (isset($_GET['action'])) {
         Swal.fire({
           title: "assigning service!",
           html: "In a moment it will be ready <b></b>",
-          timer: 1000,
+          timer: 2700,
           timerProgressBar: true,
           didOpen: () => {
             Swal.showLoading()
