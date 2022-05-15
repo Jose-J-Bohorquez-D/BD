@@ -1,15 +1,4 @@
-
-
-
-traducir a ingles todo (prioridad)
-
-botones mas directos
-
 buscar como pre llenar documentos
-
-modificar valores para que reprensenten con el " . " dinero real
-
-agregar la placa a la vista del vehiculo
 
 vista reporte de ventas ?
 consulta por dia, mes y año
@@ -23,4 +12,3 @@ poner el logo al menu lat
 pasarela de pagos con paypal y authorize.net
 
 mails masivos documentarme
-
