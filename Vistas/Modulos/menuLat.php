@@ -13,7 +13,9 @@
         <img src="Vistas/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <a href="index.php?action=inicio" class="d-block">Desarrollador</a>
+        <!-- <a href="index.php?action=inicio">DOC: <?php echo $_SESSION["ident"];  ?></a><br> -->
+        <a href="index.php?action=inicio"><?php echo $_SESSION["nombres"];  ?></a>
+        <a href="index.php?action=inicio" class="d-block"><?php echo $_SESSION["rol"];  ?></a>
       </div>
     </div>
     <!-- Sidebar Menu -->

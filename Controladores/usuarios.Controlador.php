@@ -223,6 +223,13 @@ inicio de sesion
 					if ($respuesta["email"] == $_POST['usu'] && $respuesta["pass_usu"] == $_POST['pwd'] ) {
 
 						$_SESSION['iniciarSesion'] = "ok";
+						$_SESSION['id'] = $respuesta["id_usuario"];
+						$_SESSION['ident'] = $respuesta["identificacion"];
+						$_SESSION['nombres'] = $respuesta["nombres"];
+						$_SESSION['email'] = $respuesta["email"];
+						$_SESSION['tel'] = $respuesta["telefono"];
+						$_SESSION['dir'] = $respuesta["direccion"];
+						$_SESSION['rol'] = $respuesta["rol_asignado"];
 
 						echo '
 						<script type="text/javascript">
