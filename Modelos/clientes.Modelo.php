@@ -15,7 +15,10 @@ class ModeloClientes extends ConexionBD{
 					email2,
 					id_cgpe,
 					ifta_number,
-					tax_id_number_ein)
+					tax_id_number_ein,
+					ny_permit,
+					nm_permit,
+					ky_permit)
 			VALUES(:nombre_empresa,
 					:nombre_cliente,
 					:direccion,
@@ -26,7 +29,10 @@ class ModeloClientes extends ConexionBD{
 					:email2,
 					:id_cgpe,
 					:ifta_number,
-					:tax_id_number_ein)");
+					:tax_id_number_ein,
+					:ny_permit,
+					:nm_permit,
+					:ky_permit)");
 		$stmt->bindParam(":nombre_empresa",$datosMdl["nE"]);
 		$stmt->bindParam(":nombre_cliente",$datosMdl["nC"]);
 		$stmt->bindParam(":direccion",$datosMdl["dir"]);
@@ -38,6 +44,9 @@ class ModeloClientes extends ConexionBD{
 		$stmt->bindParam(":id_cgpe",$datosMdl["idCgpe"]);
 		$stmt->bindParam(":ifta_number",$datosMdl["nIfta"]);
 		$stmt->bindParam(":tax_id_number_ein",$datosMdl["taxId"]);
+		$stmt->bindParam(":ny_permit",$datosMdl["nypi"]);
+		$stmt->bindParam(":nm_permit",$datosMdl["nmpi"]);
+		$stmt->bindParam(":ky_permit",$datosMdl["kypi"]);
 		if ($stmt->execute()) {
 			return "cpz";
 		}else{
@@ -74,7 +83,10 @@ class ModeloClientes extends ConexionBD{
 				email2= :email2,
 				id_cgpe= :id_cgpe,
 				ifta_number= :ifta_number,
-				tax_id_number_ein= :tax_id_number_ein 
+				tax_id_number_ein= :tax_id_number_ein,
+				ny_permit= :ny_permit,
+				nm_permit= :nm_permit,
+				ky_permit= :ky_permit
 			WHERE id_cliente= :idCli");
 		$stmt->bindParam(":nombre_empresa",$datosMdl["eNe"]);
 		$stmt->bindParam(":nombre_cliente",$datosMdl["eNc"]);
@@ -88,6 +100,9 @@ class ModeloClientes extends ConexionBD{
 		$stmt->bindParam(":ifta_number",$datosMdl["eIdnifta"]);
 		$stmt->bindParam(":tax_id_number_ein",$datosMdl["eTaxId"]);
 		$stmt->bindParam(":idCli",$datosMdl["idClienteAEditar"]);
+		$stmt->bindParam(":ny_permit",$datosMdl["enyp"]);
+		$stmt->bindParam(":nm_permit",$datosMdl["enmp"]);
+		$stmt->bindParam(":ky_permit",$datosMdl["ekyp"]);
 		if ($stmt->execute()) {
 			return "cpz";
 		}else{

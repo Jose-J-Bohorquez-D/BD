@@ -27,8 +27,8 @@
           </div>
         </div>
         <div class="card-body">
-          <div class="container-responsive">
-            <table id ="example1" class="table table-bordered table-striped">
+          <div class="table-responsive">
+            <table id ="example1" class="table table-bordered table-striped text-nowrap">
               <thead>
                 <tr>
                   <th>COMPANY NAME</th>

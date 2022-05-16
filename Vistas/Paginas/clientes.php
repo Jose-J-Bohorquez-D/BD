@@ -88,6 +88,9 @@ if (isset($_GET['action'])) {
             <th>ID CGPE</th>
             <th># IFTA</th>
             <th>TAX ID/#EIN</th>
+            <th>NY PERMIT #</th>
+            <th>NM PERMIT #</th>
+            <th>KY PERMIT #</th>
           </tr>
           </thead>
           <tbody>
@@ -156,6 +159,18 @@ $verClientes->ctrMostrarClientes();
 
           <label>TAX ID / # EIN:</label>
           <input type="text" name="taxId" placeholder="write TAX ID/EIN #" class="form-control" >
+          <br>
+
+          <label>NY PERMIT #:</label>
+          <input type="number" name="nyp" placeholder="write NY PERMIT #" class="form-control" >
+          <br>
+
+          <label>NM PERMIT #:</label>
+          <input type="number" name="nmp" placeholder="write NM PERMIT #" class="form-control" >
+          <br>
+
+          <label>KY PERMIT #:</label>
+          <input type="number" name="kyp" placeholder="write KY PERMIT #" class="form-control" >
           <br>
 
       </div>

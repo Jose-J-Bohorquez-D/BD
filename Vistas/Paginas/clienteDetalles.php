@@ -46,10 +46,11 @@ $mstrDatos1->ctrMostrarDatos1NameEmpNameCli();
         <div class="card">
           <div class="card-header p-2">
             <ul class="nav nav-pills">
-              <li class="nav-item"><a class="nav-link active" href="#profile" data-toggle="tab">Profile</a></li>
+              <li class="nav-item"><a class="nav-link " href="#profile" data-toggle="tab">Profile</a></li>
               <li class="nav-item"><a class="nav-link" href="#trucks" data-toggle="tab">Trucks</a></li>
               <li class="nav-item"><a class="nav-link" href="#files" data-toggle="tab">Files</a></li>
-              <li class="nav-item"><a class="nav-link " href="#pdf" data-toggle="tab">PDF</a></li>
+              <li class="nav-item"><a class="nav-link" href="#pdf" data-toggle="tab">PDF</a></li>
+              <li class="nav-item"><a class="nav-link active" href="#ayd" data-toggle="tab">Alcohol And Drugs</a></li>
             </ul>
           </div>
           <div class="card-body">
@@ -57,7 +58,7 @@ $mstrDatos1->ctrMostrarDatos1NameEmpNameCli();
 <div class="tab-content">
 
 
-<div class="tab-pane active" id="profile">
+<div class="tab-pane" id="profile">
 <?php 
 $mstrDatos2= new ControladorDetallesCliente;
 $mstrDatos2->ctrMostrarDatos2DemasDts();
@@ -114,7 +115,9 @@ $mstrDatos2->ctrMostrarDatos2DemasDts();
 
 
               <div class="tab-pane" id="files">
-
+<div class="container-fluid">
+  <p>pendeinte la modularizar el save de los archivos</p>
+</div>
               </div>
 
 
@@ -238,6 +241,28 @@ $mstrDatos2->ctrMostrarDatos2DemasDts();
   </tbody>
 </table>
 </div>
+              </div>
+
+              <div class="tab-pane active" id="ayd">
+                <div class="table-responsive">
+                  <table id ="example1" class="table table-sm table-bordered table-striped text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>COMPANY NAME</th>
+                        <th>CLIENT NAME</th>
+                        <th>EMAIL</th>
+                        <th>PLATE</th>
+                        <th>SERVICIO</th>
+                        <th>SERVICE START DATE</th>
+                        <th>SERVICE END DATE</th>
+                        <th>VALUE</th>
+                      </tr>
+                    </thead>
+                  <tbody>
+      <?php $mstrDtos=new Controlador_Alcohol_Y_Drogas; $mstrDtos->ctrMostrarServiciosFiltradosAD(); ?>
+                  </tbody>
+                  </table>
+                </div>
               </div>
 
 

@@ -47,13 +47,13 @@
           </a>
         </li>
 
-        <li class="nav-item">
+        <!--<li class="nav-item">
           <a href="index.php?action=alcoholydrogas" class="nav-link">
             <i class="nav-icon fa fa-thin fa-capsules" aria-hidden="true"></i>
-            <!-- <i class="nav-icon fa fa-thin fa-wine-bottle" aria-hidden="true"></i> -->
+             <i class="nav-icon fa fa-thin fa-wine-bottle" aria-hidden="true"></i>
             <p>Alcohol And Drugs</p>
           </a>
-        </li>
+        </li>-->
 
         <li class="nav-item">
           <a href="index.php?action=vehiculos" class="nav-link">

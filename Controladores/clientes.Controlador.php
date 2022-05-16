@@ -20,7 +20,10 @@ crear nuevo cliente
 				"mail2"=>$_POST['correo2'],
 				"idCgpe"=>$_POST['idCgpe'],
 				"nIfta"=>$_POST['nIfta'],
-				"taxId"=>$_POST['taxId']);
+				"taxId"=>$_POST['taxId'],
+				"nypi"=>$_POST['nyp'],
+				"nmpi"=>$_POST['nmp'],
+				"kypi"=>$_POST['kyp']);
 
 			$respuesta=ModeloClientes::mdlCrearNuevoCliente($datosCtr,"clientes");
 
@@ -90,6 +93,9 @@ Mostrar Clientes
       		<td>'.$value["id_cgpe"].'</td>
       		<td>'.$value["ifta_number"].'</td>
       		<td>'.$value["tax_id_number_ein"].'</td>
+      		<td>'.$value["ny_permit"].'</td>
+      		<td>'.$value["nm_permit"].'</td>
+      		<td>'.$value["ky_permit"].'</td>
     	</tr>
   		';
 		}
@@ -155,6 +161,19 @@ Editar Clientes
 <label>TAX ID / # EIN:</label>
 <input type="text" name="ediTaxId" value="'.$respuesta['tax_id_number_ein'].'" placeholder="write TAX ID/EIN #" class="form-control" >
 <br>
+
+<label>NY PERMIT #:</label>
+<input type="number" name="editnyp" value="'.$respuesta['ny_permit'].'" placeholder="write NY PERMIT #" class="form-control" >
+<br>
+
+<label>NM PERMIT #:</label>
+<input type="number" name="editnmp" value="'.$respuesta['nm_permit'].'" placeholder="write NM PERMIT #" class="form-control" >
+<br>
+
+<label>KY PERMIT #:</label>
+<input type="number" name="editkyp" value="'.$respuesta['ky_permit'].'" placeholder="write KY PERMIT #" class="form-control" >
+<br>
+
 			';
 			
 		}
@@ -180,7 +199,10 @@ actualizar Cliente
 				"eC2"=>$_POST['ediCorreo2'],
 				"eIcgpe"=>$_POST['ediIdCgpe'],
 				"eIdnifta"=>$_POST['ediNIfta'],
-				"eTaxId"=>$_POST['ediTaxId']);
+				"eTaxId"=>$_POST['ediTaxId'],
+				"enyp"=>$_POST['editnyp'],
+				"enmp"=>$_POST['editnmp'],
+				"ekyp"=>$_POST['editkyp']);
 
 			$respuesta=ModeloClientes::mdlActualizarCliente($datosCtr,"clientes");
 

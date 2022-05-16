@@ -71,7 +71,7 @@
             </a>
           </div>
 
-          <div class="col-4">
+          <!--<div class="col-4">
             <a href="index.php?action=alcoholydrogas">
               <div class="small-box bg-danger">
               <div class="inner"><br><br>
@@ -82,7 +82,7 @@
               </div>
             </div>
             </a>
-          </div>
+          </div> -->
 
           <div class="col-4">
             <a href="index.php?action=vehiculos">
