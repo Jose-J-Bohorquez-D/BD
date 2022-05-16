@@ -1,14 +1,10 @@
-<?php 
-ob_start(); 
-session_start();
-?>
+<?php ob_start(); session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Trucks</title>
-
   <!-- bootstrap-Local --> <link rel="stylesheet" href="Vistas/Css/bootstrap.min.css">   <script src="Vistas/Js/jquery-3.6.0.min.js"></script>   <script src="Vistas/Js/popper.min.js"></script>   <script src="Vistas/Js/bootstrap.min.js"></script>
   <!-- Google Font: Source Sans Pro -->  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->  <link rel="stylesheet" href="Vistas/plugins/fontawesome-free/css/all.min.css">
@@ -45,11 +41,10 @@ session_start();
   <!-- AdminLTE App --><script src="Vistas/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes <script src="Vistas/dist/js/demo.js"></script>-->
   <!-- sweetAlert2 --><script src="Vistas/Js/sweetalert2-07052022.all.min.js"></script>
-
   </head>
   <?php if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == "ok") {
     echo '
-  <body class="hold-transition sidebar-mini">
+  <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">';
     include 'Vistas/Modulos/navSup.php';
     include 'Vistas/Modulos/menuLat.php';
@@ -59,10 +54,9 @@ session_start();
     #include 'Vistas/Modulos/footer.php'; 
     echo '</div>';
   }else{
-    echo '<body class="hold-transition sidebar-mini login-page">';
+    echo '<body class="hold-transition sidebar-mini layout-fixed login-page">';
     include 'Vistas/Paginas/login.php';
   } ?>
-
   <!-- Page specific script -->
   <script>
     $(function () {
@@ -81,8 +75,6 @@ session_start();
       });
     });
   </script>
-
 </body>
 </html>
-
 <?php ob_end_flush(); ?>
