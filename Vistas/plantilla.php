@@ -44,7 +44,7 @@
   </head>
   <?php if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == "ok") {
     echo '
-  <body class="hold-transition sidebar-mini layout-fixed">
+  <body class="hold-transition sidebar-collapse sidebar-mini layout-fixed">
     <div class="wrapper">';
     include 'Vistas/Modulos/navSup.php';
     include 'Vistas/Modulos/menuLat.php';

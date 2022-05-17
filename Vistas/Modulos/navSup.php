@@ -19,7 +19,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-widget="fullscreen" href="index.php?action=salir" role="button">Safe Exit
+      <a class="nav-link" href="index.php?action=salir" role="button">Safe Exit
         <i class="fa fa-sign-out" aria-hidden="true"></i>
       </a>
     </li>

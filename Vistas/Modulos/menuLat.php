@@ -10,17 +10,16 @@
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="Vistas/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="Vistas/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
-        <!-- <a href="index.php?action=inicio">DOC: <?php echo $_SESSION["ident"];  ?></a><br> -->
-        <a href="index.php?action=inicio"><?php echo $_SESSION["nombres"];  ?></a>
-        <a href="index.php?action=inicio" class="d-block"><?php echo $_SESSION["rol"];  ?></a>
+        <a href="index.php?action=inicio"><?php echo $_SESSION["nombres"];?></a><br>
+        <a href="index.php?action=inicio"><?php echo $_SESSION["rol"];?></a>
       </div>
     </div>
     <!-- Sidebar Menu -->
     <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <li class="nav-item">
           <a href="index.php" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>

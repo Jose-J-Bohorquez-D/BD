@@ -33,9 +33,9 @@
 <div class="row d-flex justify-content-center">
   <div class="col col-2">
 <!-- boton llamado al modal crear -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearCliente">
+<button type="button" class="btn btn-primary text-nowrap" data-bs-toggle="modal" data-bs-target="#crearCliente">
   create new customer
-</button>
+</button><br><br>
   </div>
 </div>
         <table id="example1" class="table table-dark table-hover  table-borderless table-sm text-nowrap">

@@ -34,7 +34,7 @@
 <div class="row d-flex justify-content-center">
   <div class="col col-2">
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearUsuario">
+      <button type="button" class="btn btn-primary text-nowrap" data-bs-toggle="modal" data-bs-target="#crearUsuario">
         Create New User
       </button>
   </div>

@@ -36,7 +36,7 @@
             <a href="index.php?action=clientes">
               <div class="small-box bg-primary">
               <div class="inner"><br><br>
-                <h4>Customers</h4><br><br>
+                <h4 class="text-nowrap">Customers</h4><br><br>
               </div>
               <div class="icon">
                  <i class="fa fa-building" aria-hidden="true"></i>
@@ -49,7 +49,7 @@
             <a href="index.php?action=servicios">
               <div class="small-box bg-secondary">
               <div class="inner"><br><br>
-                <h4>Servicios</h4><br><br>
+                <h4 class="text-nowrap">Servicios</h4><br><br>
               </div>
               <div class="icon">
                 <i class="fa fa-thin fa-handshake"></i>
@@ -62,7 +62,7 @@
             <a href="index.php?action=usuarios">
               <div class="small-box bg-success">
               <div class="inner"><br><br>
-                <h4>Users</h4><br><br>
+                <h4 class="text-nowrap">Users</h4><br><br>
               </div>
               <div class="icon">
                 <i class="fa fa-users"></i>
@@ -88,7 +88,7 @@
             <a href="index.php?action=vehiculos">
               <div class="small-box bg-warning">
               <div class="inner"><br><br>
-                <h4>Trucks</h4><br><br>
+                <h4 class="text-nowrap">Trucks</h4><br><br>
               </div>
               <div class="icon">
                 <i class="fas fa-truck"></i>
@@ -115,7 +115,7 @@
             <a href="index.php">
               <div class="small-box bg-info">
               <div class="inner"><br><br>
-                <h4>Sales Report</h4><br><br>
+                <h4 class="text-nowrap text-center">Sales Report</h4><br><br>
               </div>
               <div class="icon">
                 <i class="fas fa-chart-pie"></i>

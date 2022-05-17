@@ -34,7 +34,7 @@
 <div class="row d-flex justify-content-center">
   <div class="col col-2">
 <!-- boton llamado al modal crear -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#crearVehiculo">
+<button type="button" class="btn btn-primary text-nowrap" data-bs-toggle="modal" data-bs-target="#crearVehiculo">
   Create New Vehicle
 </button>
 
