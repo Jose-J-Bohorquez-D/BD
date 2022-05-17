@@ -31,14 +31,14 @@
         <li class="nav-item">
           <a href="index.php?action=clientes" class="nav-link">
             <i class="nav-icon fa fa-building" aria-hidden="true"></i>
-            <p>Cursomers</p>
+            <p>Customers</p>
           </a>
         </li>
 
         <li class="nav-item">
           <a href="index.php?action=servicios" class="nav-link">
             <i class="nav-icon fa fa-solid fa-handshake" aria-hidden="true"></i>
-            <p>Servicios</p>
+            <p>Services</p>
           </a>
         </li>
 
