@@ -263,6 +263,22 @@ if (isset($_GET['idMstrPrl'])) {
     $respuesta=ModeloDetallesCliente::mdlMostrarDtsCliente($dato,"clientes");
     #var_dump($respuesta["nombre_empresa"]);
   }
+
+if (isset($_POST["renombre"])) {
+  $newName=$_POST["renombre"];
+}
+
+if (isset($_FILES["arch"])) {
+  $detalles=$_FILES["arch"];
+  var_dump($detalles);
+  echo "<br>";
+  var_dump($detalles["name"]);
+  echo "<br>";
+  $newArchivo=rename($detalles["name"],$newName.".pdf");
+var_dump($newArchivo);
+}
+
+
 if (isset($_FILES["arch"])) {
   #$archivo=$_FILES["arch"];  #var_dump($archivo);
   $directorio="Vistas/Archivos/";
@@ -271,7 +287,7 @@ if (isset($_FILES["arch"])) {
   $size=filesize($_FILES["arch"]["tmp_name"]);   #echo $tipoArchivo;
   if ($tipoArchivo=="pdf") {
     if (move_uploaded_file($_FILES["arch"]["tmp_name"], $archivo)) {
-      $array("nombreArchivo")
+      #$array("nombreArchivo");
           echo '
     <script>
       Swal.fire({
