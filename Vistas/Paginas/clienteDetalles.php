@@ -48,9 +48,9 @@ $mstrDatos1->ctrMostrarDatos1NameEmpNameCli();
             <ul class="nav nav-pills">
               <li class="nav-item"><a class="nav-link " href="#profile" data-toggle="tab">Profile</a></li>
               <li class="nav-item"><a class="nav-link" href="#trucks" data-toggle="tab">Trucks</a></li>
-              <li class="nav-item"><a class="nav-link" href="#files" data-toggle="tab">Files</a></li>
+              <li class="nav-item"><a class="nav-link active" href="#files" data-toggle="tab">Files</a></li>
               <li class="nav-item"><a class="nav-link" href="#pdf" data-toggle="tab">PDF</a></li>
-              <li class="nav-item"><a class="nav-link active" href="#ayd" data-toggle="tab">Alcohol And Drugs</a></li>
+              <li class="nav-item"><a class="nav-link" href="#ayd" data-toggle="tab">Alcohol And Drugs</a></li>
             </ul>
           </div>
           <div class="card-body">
@@ -114,9 +114,23 @@ $mstrDatos2->ctrMostrarDatos2DemasDts();
 
 
 
-              <div class="tab-pane" id="files">
+              <div class="tab-pane active" id="files">
 <div class="container-fluid">
-  <p>pendeinte la modularizar el save de los archivos</p>
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-10">
+        <form method="post" enctype="multipart/form-data">
+          <input type="file" name="arch" class="form-control"><br>
+          <label>rename the file</label>
+          <input type="text" name="renombre" class="form-control"><br>
+          <button type="submit" class="btn btn-primary">Upload File</button>
+        </form>
+      </div>
+      <div class="col-6">
+        <?php $subirArchivos=new ControladorDetallesCliente(); $subirArchivos->subirArchivos(); ?>
+      </div>
+    </div>
+  </div>
 </div>
               </div>
 
@@ -243,7 +257,7 @@ $mstrDatos2->ctrMostrarDatos2DemasDts();
 </div>
               </div>
 
-              <div class="tab-pane active" id="ayd">
+              <div class="tab-pane" id="ayd">
                 <div class="table-responsive">
                   <table id ="example1" class="table table-sm table-bordered table-striped text-nowrap">
                     <thead>

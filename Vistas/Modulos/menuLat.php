@@ -77,6 +77,13 @@
           </a>
         </li>
 
+        <li class="nav-item">
+          <a href="https://pay.xpress-pay.com/org/D839FF5013744CB" target="_bank" class="nav-link">
+            <i class="nav-icon fa-brands fa-paypal" aria-hidden="true"></i>
+            <p>Pay Gere</p>
+          </a>
+        </li>
+
         <!--<li class="nav-item">
           <a data-widget="fullscreen" class="nav-link">
             <i class="nav-icon fa fa-arrows-alt" aria-hidden="true"></i>
