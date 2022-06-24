@@ -257,6 +257,14 @@ public function ctrActualizarDatosVehiculoConServicios(){
 #------------------------------------------------------------
 /*  gestor de archivos  */
 #------------------------------------------------------------
+public function subirArchivos1(){
+
+}
+
+
+#------------------------------------------------------------
+/*  gestor de archivos  */
+#------------------------------------------------------------
 public function subirArchivos(){
 if (isset($_GET['idMstrPrl'])) {
     $dato=$_GET['idMstrPrl'];   
@@ -264,23 +272,52 @@ if (isset($_GET['idMstrPrl'])) {
     #var_dump($respuesta["nombre_empresa"]);
   }
 
+<<<<<<< HEAD
+=======
+if (isset($_POST["renombre"])) {
+  $newName=$_POST["renombre"];
+  echo "<br>";
+  echo  "nombre del archivo :".$newName;
+  echo "<br>";
+}
+>>>>>>> eb11c93c832e8882cb3450a098f6c0e451befc75
 
 if (isset($_FILES["arch"])) {
   $detalles=$_FILES["arch"];
   #var_dump($detalles);
+<<<<<<< HEAD
   #echo "<br>";echo "<br>";
   #var_dump($detalles["name"]);
   #echo "<br>";
+=======
+  echo "<br>";
+  #var_dump($detalles["name"]);
+  echo "<br>";
+  #$newArchivo=rename($detalles["name"],$newName.".pdf");
+  #var_dump($newArchivo);
+>>>>>>> eb11c93c832e8882cb3450a098f6c0e451befc75
 }
 
+echo "<br>";
+#$detalles["name"]=$newName.".".$respuesta["nombre_empresa"];
+#var_dump($detalles["name"]);
+echo "<br>";
 
 if (isset($_FILES["arch"])) {
   #$archivo=$_FILES["arch"];  #var_dump($archivo);
   $directorio="Vistas/Archivos/";
+  echo "<br>";
   $archivo=$directorio . basename($_FILES["arch"]["name"]);
+<<<<<<< HEAD
   #echo "ruta archivo :". $archivo;
   #var_dump($archivo);
+=======
+  echo "esta es la ruta del archivo : ".$archivo;
+  echo "<br>";
+>>>>>>> eb11c93c832e8882cb3450a098f6c0e451befc75
   $tipoArchivo=strtolower(pathinfo($archivo,PATHINFO_EXTENSION));
+  echo "<br>";
+  echo "el tipo de archivo es :".$tipoArchivo;
   $size=filesize($_FILES["arch"]["tmp_name"]);   #echo $tipoArchivo;
   if ($tipoArchivo=="pdf") {
     if (move_uploaded_file($_FILES["arch"]["tmp_name"], $archivo)) {
