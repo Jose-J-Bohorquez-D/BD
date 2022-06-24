@@ -114,25 +114,66 @@ $mstrDatos2->ctrMostrarDatos2DemasDts();
 
 
 
-              <div class="tab-pane active" id="files">
+<div class="tab-pane active" id="files">
+
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical"><br><br><br>
+    <button class="nav-link " id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">current files</button>
+    <button class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">upload new file</button><br><br><br>
+  </div>
+  <div class="tab-content" id="v-pills-tabContent">
+    <div class="tab-pane fade " id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+<div class="row">
+  <div class="col-12">
+    <div class="container-fluid">
+  <div class="table-responsive">
+          <table id="example1" class="table table-dark table-hover  table-borderless text-nowrap">
+          <?php $mstrVehiculos=new ControladorDetallesCliente; $mstrVehiculos->ctrMostrarVehiculosFiltrados(); ?>
+          <thead>
+          <tr>
+            <th>ACTION</th>
+            <th>PLACA</th>
+            <th>MODEL</th>
+            <th>YEAR</th>
+            <th>VIN #</th>
+            <th>VALUE-COST</th>
+            <th>DOT #</th>
+            <th>SLOPE1</th>
+            <th>SLOPE2</th>
+            <th>SLOPE3</th>
+            <th>ASSIGNED TO:</th>
+          </tr>
+          </thead>
+          <tbody>
+          
+          </tbody>
+  </table>
+</div>
+</div>
+  </div>
+</div>
+    </div>
+    <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
 <div class="container-fluid">
-  <div class="container">
-    <div class="row d-flex justify-content-center">
-      <div class="col-10">
+  <div class="container-responsive">
+    <div class="row text-center">
+      <div class="col-12">
         <form method="post" enctype="multipart/form-data">
           <input type="file" name="arch" class="form-control"><br>
           <label>rename the file</label>
-          <input type="text" name="renombre" class="form-control"><br>
-          <button type="submit" class="btn btn-primary">Upload File</button>
+          <input type="text" name="renombre" class="form-control" placeholder="rename the file"><br><br>
+          <button type="submit" class="btn btn-primary">Upload File</button><br>
         </form>
-      </div>
-      <div class="col-6">
         <?php $subirArchivos=new ControladorDetallesCliente(); $subirArchivos->subirArchivos(); ?>
       </div>
     </div>
   </div>
 </div>
-              </div>
+    </div>
+  </div>
+</div>
+
+</div>
 
 
 
@@ -149,107 +190,107 @@ $mstrDatos2->ctrMostrarDatos2DemasDts();
 
 <tr>
   <th>Trucker Lease agreement</th>
-  <th><a href="Vistas/pdfs/1-Trucker-Lease-agreement.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/1-Trucker-Lease-agreement.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Vehicle Identification</th>
-  <th><a href="Vistas/pdfs/2-VEHICLE-IDENTIFICATION.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/2-VEHICLE-IDENTIFICATION.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Small Corporation</th>
-  <th><a href="Vistas/pdfs/3-small-corporation.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/3-small-corporation.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>W-9</th>
-  <th><a href="Vistas/pdfs/4-W-9.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/4-W-9.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Fuel Taxes</th>
-  <th><a href="Vistas/pdfs/5-FUEL-TAXES.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/5-FUEL-TAXES.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Dot Reinstatement</th>
-  <th><a href="Vistas/pdfs/6-DOT-REINSTATEMENT.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/6-DOT-REINSTATEMENT.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>General Affidavit</th>
-  <th><a href="Vistas/pdfs/7-GENERAL-AFFIDAVIT.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/7-GENERAL-AFFIDAVIT.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Dot Change And Plate Change</th>
-  <th><a href="Vistas/pdfs/8-DOT-CHANGE-AND-PLATE-CHANGE.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/8-DOT-CHANGE-AND-PLATE-CHANGE.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Ifta Remplace Decals</th>
-  <th><a href="Vistas/pdfs/9-IFTA-REMPLACE-DECALS.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/9-IFTA-REMPLACE-DECALS.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Ifta Carrier Services Contact</th>
-  <th><a href="Vistas/pdfs/10-IFTA-Carrier-Services-Contact.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/10-IFTA-Carrier-Services-Contact.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Ifta Aplication</th>
-  <th><a href="Vistas/pdfs/11-IFTA-APPLICATION.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/11-IFTA-APPLICATION.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Most Lost</th>
-  <th><a href="Vistas/pdfs/12-MOTOR-LOST.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/12-MOTOR-LOST.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>New or Renewal Tag Local</th>
-  <th><a href="Vistas/pdfs/13-New-or-Renewal-Tag-Local.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/13-New-or-Renewal-Tag-Local.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Non Use Affidavit</th>
-  <th><a href="Vistas/pdfs/14-NON-USE-AFFIDAVIT.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/14-NON-USE-AFFIDAVIT.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Ny Permit</th>
-  <th><a href="Vistas/pdfs/15-NY-PERMIT.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/15-NY-PERMIT.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Poa Affidavit</th>
-  <th><a href="Vistas/pdfs/16-POA-AFFIDAVIT.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/16-POA-AFFIDAVIT.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Poa Florida</th>
-  <th><a href="Vistas/pdfs/17-POA-FLORIDA.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/17-POA-FLORIDA.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Small Corporation</th>
-  <th><a href="Vistas/pdfs/18-small-corporation.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/18-small-corporation.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Trucker Lease Agreement</th>
-  <th><a href="Vistas/pdfs/19-Trucker-Lease-agreement.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/19-Trucker-Lease-agreement.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>Vehicle Identification</th>
-  <th><a href="Vistas/pdfs/20-VEHICLE-IDENTIFICATION.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/20-VEHICLE-IDENTIFICATION.pdf" target="_bank">To Download</a></th>
 </tr>
 
 <tr>
   <th>W 9</th>
-  <th><a href="Vistas/pdfs/21-W-9.pdf">To Download</a></th>
+  <th><a href="Vistas/pdfs/21-W-9.pdf" target="_bank">To Download</a></th>
 </tr>
 
   </tbody>

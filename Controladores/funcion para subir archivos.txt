@@ -1,0 +1,74 @@
+
+public function subirArchivos(){
+if (isset($_GET['idMstrPrl'])) {
+    $dato=$_GET['idMstrPrl'];   
+    $respuesta=ModeloDetallesCliente::mdlMostrarDtsCliente($dato,"clientes");
+    #var_dump($respuesta["nombre_empresa"]);
+  }
+
+if (isset($_POST["renombre"])) {
+  $newName=$_POST["renombre"];
+}
+
+if (isset($_FILES["arch"])) {
+  $detalles=$_FILES["arch"];
+  var_dump($detalles);
+  echo "<br>";
+  var_dump($detalles["name"]);
+  echo "<br>";
+  $newArchivo=rename($detalles["name"],$newName.".pdf");
+var_dump($newArchivo);
+}
+
+
+if (isset($_FILES["arch"])) {
+  #$archivo=$_FILES["arch"];  #var_dump($archivo);
+  $directorio="Vistas/Archivos/";
+  $archivo=$directorio . basename($_FILES["arch"]["name"]);
+  $tipoArchivo=strtolower(pathinfo($archivo,PATHINFO_EXTENSION));
+  $size=filesize($_FILES["arch"]["tmp_name"]);   #echo $tipoArchivo;
+  if ($tipoArchivo=="pdf") {
+    if (move_uploaded_file($_FILES["arch"]["tmp_name"], $archivo)) {
+      #$array("nombreArchivo");
+          echo '
+    <script>
+      Swal.fire({
+      icon: "success",
+      title: "good",
+      text: "Archivo subido con exito!"
+      })
+    </script>
+    ';
+    }else{
+          echo '
+    <script>
+      Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "error al subir archivo!"
+      })
+    </script>
+    ';
+    }
+  }else{
+    echo '
+    <script>
+      Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Only files in (PDF) format are allowed!"
+      })
+    </script>
+    ';
+  }
+
+
+  }else{
+    echo '
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>A file must be selected!</strong> before pressing upload
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+    ';
+  }
+}

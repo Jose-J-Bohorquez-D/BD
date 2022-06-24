@@ -264,18 +264,13 @@ if (isset($_GET['idMstrPrl'])) {
     #var_dump($respuesta["nombre_empresa"]);
   }
 
-if (isset($_POST["renombre"])) {
-  $newName=$_POST["renombre"];
-}
 
 if (isset($_FILES["arch"])) {
   $detalles=$_FILES["arch"];
-  var_dump($detalles);
-  echo "<br>";
-  var_dump($detalles["name"]);
-  echo "<br>";
-  $newArchivo=rename($detalles["name"],$newName.".pdf");
-var_dump($newArchivo);
+  #var_dump($detalles);
+  #echo "<br>";echo "<br>";
+  #var_dump($detalles["name"]);
+  #echo "<br>";
 }
 
 
@@ -283,12 +278,42 @@ if (isset($_FILES["arch"])) {
   #$archivo=$_FILES["arch"];  #var_dump($archivo);
   $directorio="Vistas/Archivos/";
   $archivo=$directorio . basename($_FILES["arch"]["name"]);
+  #echo "ruta archivo :". $archivo;
+  #var_dump($archivo);
   $tipoArchivo=strtolower(pathinfo($archivo,PATHINFO_EXTENSION));
   $size=filesize($_FILES["arch"]["tmp_name"]);   #echo $tipoArchivo;
   if ($tipoArchivo=="pdf") {
     if (move_uploaded_file($_FILES["arch"]["tmp_name"], $archivo)) {
-      #$array("nombreArchivo");
-          echo '
+
+#renombrar archivo despues de subido
+if (file_exists($archivo)) {
+  if (isset($_POST["renombre"])) {
+    $newName=$_POST["renombre"];
+    $nombreFinal=$directorio . $newName . ".pdf";
+    #var_dump($nombreFinal);
+  }
+
+  if (rename($archivo, $nombreFinal)) {
+    #echo "archivo renombrado con exito";
+  }else{
+    echo "archivo yape";
+  }
+}else{
+  echo "archivo no existente";
+}
+
+#subir datos a la BD
+if (file_exists($nombreFinal)) {
+  $datosFile=array("nombreArchivo"=>basename($nombreFinal),
+                   "rutaArchivo"=>$nombreFinal,
+                   "nombreEmpresa"=>$respuesta["nombre_empresa"]);
+  #var_dump($datosFile);
+  $respuestaSubirArchivo=ModeloDetallesCliente::subirArchivoModelo("archivos",$datosFile);
+  var_dump($respuestaSubirArchivo);
+}
+
+#alerta de confirmacion subio archivo con exito
+echo '
     <script>
       Swal.fire({
       icon: "success",
@@ -336,3 +361,5 @@ if (isset($_FILES["arch"])) {
 }
 
  ?>
+
+

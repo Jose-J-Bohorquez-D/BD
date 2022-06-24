@@ -59,6 +59,41 @@ class ModeloDetallesCliente extends ConexionBD{
 
 	}
 
+	#aca subimos archivos al servidor y a la base de datos 
+	static public function subirArchivoModelo($tabla,$datosArchivoMdl){
+	$horaLoc=date_default_timezone_set("America/Bogota");
+	$horaLoc=date("Y-m-d H:i:s");
+
+		$stmt=ConexionBD::conectarbd()->prepare("INSERT INTO $tabla(nombre_archivo,ruta_archivo,nombre_empresa,fecha_crea)
+			VALUES(:na,:ra,:ne,:fc)");
+		$stmt->bindParam(":na",$datosArchivoMdl["nombreArchivo"]);
+		$stmt->bindParam(":ra",$datosArchivoMdl["rutaArchivo"]);
+		$stmt->bindParam(":ne",$datosArchivoMdl["nombreEmpresa"]);
+		$stmt->bindParam(":fc",$horaLoc);
+		if ($stmt->execute()) {
+			return "cpz";
+		}else{
+			return "error";
+		}
+	}
+
+	#mostrar datos de la tabla de archivos
+	static public function mdlEditarPerfil($datosModelo,$tabla){
+
+		$stmt=ConexionBD::conectarbd()->prepare("SELECT * FROM $tabla WHERE nombre_empresa= :ne");
+
+		$stmt->bindParam(":ne",$datosModelo);
+
+		$stmt->execute();
+
+		return $stmt->fetch();
+
+		$stmt->close();
+
+		$stmt=null;
+
+	}
+
 
 
 }
