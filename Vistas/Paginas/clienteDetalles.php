@@ -116,59 +116,57 @@ $mstrDatos2->ctrMostrarDatos2DemasDts();
 
 <div class="tab-pane active" id="files">
 
-<div class="d-flex align-items-start">
-  <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical"><br><br><br>
-    <button class="nav-link " id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">current files</button>
-    <button class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">upload new file</button><br><br><br>
-  </div>
-  <div class="tab-content" id="v-pills-tabContent">
-    <div class="tab-pane fade " id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
-<div class="row">
-  <div class="col-12">
-    <div class="container-fluid">
-  <div class="table-responsive">
-          <table id="example1" class="table table-dark table-hover  table-borderless text-nowrap">
-          <?php $mstrVehiculos=new ControladorDetallesCliente; $mstrVehiculos->ctrMostrarVehiculosFiltrados(); ?>
-          <thead>
-          <tr>
-            <th>ACTION</th>
-            <th>PLACA</th>
-            <th>MODEL</th>
-            <th>YEAR</th>
-            <th>VIN #</th>
-            <th>VALUE-COST</th>
-            <th>DOT #</th>
-            <th>SLOPE1</th>
-            <th>SLOPE2</th>
-            <th>SLOPE3</th>
-            <th>ASSIGNED TO:</th>
-          </tr>
-          </thead>
-          <tbody>
-          
-          </tbody>
-  </table>
-</div>
-</div>
-  </div>
-</div>
-    </div>
-    <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
 <div class="container-fluid">
-  <div class="container-responsive">
-    <div class="row text-center">
-      <div class="col-12">
-        <form method="post" enctype="multipart/form-data">
-          <input type="file" name="arch" class="form-control"><br>
-          <label>rename the file</label>
-          <input type="text" name="renombre" class="form-control" placeholder="rename the file"><br><br>
-          <button type="submit" class="btn btn-primary">Upload File</button><br>
-        </form>
-        <?php $subirArchivos=new ControladorDetallesCliente(); $subirArchivos->subirArchivos(); ?>
-      </div>
+  <div class="row">
+    <div class="col-2">
+
+<div class="d-flex align-items-start">
+  <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">view files</button>
+    <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">upload new file</button>
+  </div>
+
+</div>
+
     </div>
+
+    <div class="col-10">
+        <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+          
+<div class="row">
+  <div class="table-responsive">
+  <table id="example1" class="table table-sm table-dark table-hover  table-borderless text-nowrap">
+<?php $mstrVehiculos=new ControladorDetallesCliente; $mstrVehiculos->mostrarDatosTablaArchivos(); ?>
+      <thead>
+        <tr>
+          <th>ACTION</th>
+          <th>NAME ARCH</th>
+          <th>FECHA CREATE</th>
+        </tr>
+      </thead>
+      <tbody>
+          
+    </tbody>
+  </table>
   </div>
 </div>
+
+        </div>
+        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
+          <div class="row">
+            <div class="col-10">
+              <form method="post" enctype="multipart/form-data">
+                <input type="file" name="arch" class="form-control"><br>
+                <label>rename the file</label>
+                <input type="text" name="renombre" class="form-control" placeholder="rename the file"><br><br>
+                <button type="submit" class="btn btn-primary">Upload File</button><br>
+              </form>
+              <?php $subirArchivos=new ControladorDetallesCliente(); $subirArchivos->subirArchivos(); ?>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

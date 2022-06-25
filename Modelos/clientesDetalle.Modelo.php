@@ -94,6 +94,23 @@ class ModeloDetallesCliente extends ConexionBD{
 
 	}
 
+	#mostrar datos de la tabla de archivos
+	static public function mdlMostrarDatosTablaArchivos($tabla,$nombreEmpresaModelo){
+
+		$stmt=ConexionBD::conectarbd()->prepare("SELECT * FROM $tabla WHERE nombre_empresa= :ne");
+
+		$stmt->bindParam(":ne",$nombreEmpresaModelo);
+
+		$stmt->execute();
+
+		return $stmt->fetchAll();
+
+		$stmt->close();
+
+		$stmt=null;
+
+	}
+
 
 
 }
