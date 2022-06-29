@@ -247,3 +247,36 @@ if (isset($_GET['action'])) {
   }
 }
 ?>
+<?php 
+
+if (isset($_GET['action'])) {
+  if ($_GET['action']=="okSubioArchivo") {
+    echo '
+        <script>
+        let timerInterval
+        Swal.fire({
+          title: "Uploading File!",
+          html: "In a moment it will be ready <b></b>",
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector("b")
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+            history.back()
+          }
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("I was closed by the timer")
+          }
+        })
+
+        </script>
+        ';
+  }
+}
+
+ ?>

@@ -235,32 +235,20 @@ public function ctrActualizarDatosVehiculoConServicios(){
     #var_dump($datosUpdate);
     $respuesta=ModeloDetallesCliente::mdlActualizarDatosVehiculoConServicios($datosUpdate,"vehiculos");
           if ($respuesta == "cpz") {
-        echo '
-        <script type="text/javascript">
-          window.location.href = "index.php?action=updateDtsCambioServicio";
-        </script>
-        ';
+        echo '<script type="text/javascript">
+                window.location.href = "index.php?action=updateDtsCambioServicio";
+              </script>';
       }else{
-        echo '
-            <script>
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Something went wrong!"
-            })
-        </script>
-        ';
+        echo '<script>
+                Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "Something went wrong!"
+                  })
+              </script>';
       }
   }
 }
-
-#------------------------------------------------------------
-/*  gestor de archivos  */
-#------------------------------------------------------------
-public function subirArchivos1(){
-
-}
-
 
 #------------------------------------------------------------
 /*  gestor de archivos  */
@@ -269,121 +257,92 @@ public function subirArchivos(){
   if (isset($_GET['idMstrPrl'])) {
     $dato=$_GET['idMstrPrl'];   
     $respuesta=ModeloDetallesCliente::mdlMostrarDtsCliente($dato,"clientes");
-    #var_dump($respuesta["nombre_empresa"]);
     $nombreEmpresa=$respuesta["nombre_empresa"];
   }
-
-if (isset($_POST["renombre"])) {
-  $newName=$_POST["renombre"];
-  #echo "<br>";
-  #echo  "nombre del archivo :".$newName;
-  #echo "<br>";
-}
-
-if (isset($_FILES["arch"])) {
-  $detalles=$_FILES["arch"];
-  #var_dump($detalles);
-  #echo "<br>";echo "<br>";
-  #var_dump($detalles["name"]);
-  #echo "<br>";
-  echo "<br>";
-  #var_dump($detalles["name"]);
-  echo "<br>";
-  #$newArchivo=rename($detalles["name"],$newName.".pdf");
-  #var_dump($newArchivo);
-}
-
-echo "<br>";
-#$detalles["name"]=$newName.".".$respuesta["nombre_empresa"];
-#var_dump($detalles["name"]);
-echo "<br>";
-
-if (isset($_FILES["arch"])) {
-  #$archivo=$_FILES["arch"];  #var_dump($archivo);
-  $directorio="Vistas/Archivos/";
-  #echo "<br>";
-  $archivo=$directorio . basename($_FILES["arch"]["name"]);
-  #echo "ruta archivo :". $archivo;
-  #var_dump($archivo);
-  #echo "esta es la ruta del archivo : ".$archivo;
-  #echo "<br>";
-  $tipoArchivo=strtolower(pathinfo($archivo,PATHINFO_EXTENSION));
-  #echo "<br>";
-  #echo "el tipo de archivo es :".$tipoArchivo;
-  $size=filesize($_FILES["arch"]["tmp_name"]);   #echo $tipoArchivo;
-  if ($tipoArchivo=="pdf") {
-    if (move_uploaded_file($_FILES["arch"]["tmp_name"], $archivo)) {
-
-#renombrar archivo despues de subido
-if (file_exists($archivo)) {
+  
   if (isset($_POST["renombre"])) {
-    $newName=$_POST["renombre"];
-    $nombreFinal=$directorio . $newName . ".pdf";
-    #var_dump($nombreFinal);
+  $newName=$_POST["renombre"];
   }
 
-  if (rename($archivo, $nombreFinal)) {
-    #echo "archivo renombrado con exito";
-  }else{
-    echo "archivo yape";
+  if (isset($_FILES["arch"])) {
+  $detalles=$_FILES["arch"];
   }
-}else{
-  echo "archivo no existente";
-}
 
-#subir datos a la BD
-if (file_exists($nombreFinal)) {
-  $datosFile=array("nombreArchivo"=>basename($nombreFinal),
-                   "rutaArchivo"=>$nombreFinal,
-                   "nombreEmpresa"=>$respuesta["nombre_empresa"]);
-  #var_dump($datosFile);
-  $respuestaSubirArchivo=ModeloDetallesCliente::subirArchivoModelo("archivos",$datosFile);
-  #var_dump($respuestaSubirArchivo);
-}
-
-#alerta de confirmacion subio archivo con exito
-echo '
-    <script>
-      Swal.fire({
-      icon: "success",
-      title: "good",
-      text: "Archivo subido con exito!"
-      })
-    </script>
-    ';
+  if (isset($_FILES["arch"])) {
+    $directorio="Vistas/Archivos/";
+    $archivo=$directorio . basename($_FILES["arch"]["name"]);
+    $tipoArchivo=strtolower(pathinfo($archivo,PATHINFO_EXTENSION));
+    $size=filesize($_FILES["arch"]["tmp_name"]);
+    if ($tipoArchivo=="pdf") {
+      if (move_uploaded_file($_FILES["arch"]["tmp_name"], $archivo)) {  
+        #renombrar archivo despues de subido
+        if (file_exists($archivo)) {
+          if (isset($_POST["renombre"])) {
+            $newName=$_POST["renombre"];
+            $nombreFinal=$directorio . $newName . ".pdf";
+          }
+            if (rename($archivo, $nombreFinal)) {
+            #echo "archivo renombrado con exito";
+            }else{
+              echo "archivo yape";
+            }
+        }else{
+          echo "archivo no existente";
+        }
+        #subir datos a la BD
+        if (file_exists($nombreFinal)) {
+          $datosFile=array("nombreArchivo"=>basename($nombreFinal),
+                           "rutaArchivo"=>$nombreFinal,
+                           "nombreEmpresa"=>$respuesta["nombre_empresa"]);
+          $respuestaSubirArchivo=ModeloDetallesCliente::subirArchivoModelo("archivos",$datosFile);
+          if ($respuestaSubirArchivo == "cpz") {
+          echo '<script type="text/javascript">
+                  window.location.href = "index.php?action=okSubioArchivo";
+                </script>';
+          }else{
+            echo '<script>
+                    Swal.fire({
+                      icon: "error",
+                      title: "Oops...",
+                      text: "Something went wrong!"
+                      })
+                  </script>';
+          }
+        }
+        /*echo '<script>
+                Swal.fire({
+                icon: "success",
+                title: "good",
+                text: "Archivo subido con exito!"
+                })
+              </script>';*/
+      }else{
+          echo '<script>
+                  Swal.fire({
+                  icon: "error",
+                  title: "Oops...",
+                  text: "error al subir archivo!"
+                  })
+                </script>';
+      }
     }else{
-          echo '
-    <script>
-      Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "error al subir archivo!"
-      })
-    </script>
-    ';
+      echo '<script>
+              Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Only files in (PDF) format are allowed!"
+              })
+            </script>';
     }
   }else{
-    echo '
-    <script>
-      Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Only files in (PDF) format are allowed!"
-      })
-    </script>
-    ';
+    echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>A file must be selected!</strong> before pressing upload
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
   }
+}#cierre de la funcion subirArchivos
 
 
-  }else{
-    echo '
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>A file must be selected!</strong> before pressing upload
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-    ';
-  }
-}
 
 #mostrar archivos en la tabla de archivos
 public function mostrarDatosTablaArchivos(){

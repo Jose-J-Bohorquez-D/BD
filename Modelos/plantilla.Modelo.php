@@ -145,6 +145,12 @@ class Paginas{
 
     }
 
+    elseif ($enlacesModelo=="okSubioArchivo") {
+
+      $newModulo="Vistas/Paginas/clientes.php";
+
+    }
+
     else {
 
       $newModulo="Vistas/Paginas/404.php";
