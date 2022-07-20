@@ -48,9 +48,9 @@ $mstrDatos1->ctrMostrarDatos1NameEmpNameCli();
             <ul class="nav nav-pills">
               <li class="nav-item"><a class="nav-link " href="#profile" data-toggle="tab">Profile</a></li>
               <li class="nav-item"><a class="nav-link" href="#trucks" data-toggle="tab">Trucks</a></li>
-              <li class="nav-item"><a class="nav-link active" href="#files" data-toggle="tab">Files</a></li>
+              <li class="nav-item"><a class="nav-link " href="#files" data-toggle="tab">Files</a></li>
               <li class="nav-item"><a class="nav-link" href="#pdf" data-toggle="tab">PDF</a></li>
-              <li class="nav-item"><a class="nav-link" href="#ayd" data-toggle="tab">Alcohol And Drugs</a></li>
+              <li class="nav-item"><a class="nav-link active" href="#ayd" data-toggle="tab">Alcohol And Drugs</a></li>
             </ul>
           </div>
           <div class="card-body">
@@ -114,7 +114,7 @@ $mstrDatos2->ctrMostrarDatos2DemasDts();
 
 
 
-<div class="tab-pane active" id="files">
+<div class="tab-pane " id="files">
 
 <div class="container-fluid">
   <div class="row">
@@ -296,11 +296,12 @@ $mstrDatos2->ctrMostrarDatos2DemasDts();
 </div>
               </div>
 
-              <div class="tab-pane" id="ayd">
+              <div class="tab-pane active" id="ayd">
                 <div class="table-responsive">
                   <table id ="example1" class="table table-sm table-bordered table-striped text-nowrap">
                     <thead>
                       <tr>
+                        <th><a href="index.php?action=clienteDetalles&sendMailAll" class="btn btn-warning btn-sm">send to all</a></th>
                         <th>COMPANY NAME</th>
                         <th>CLIENT NAME</th>
                         <th>EMAIL</th>
@@ -312,7 +313,8 @@ $mstrDatos2->ctrMostrarDatos2DemasDts();
                       </tr>
                     </thead>
                   <tbody>
-      <?php $mstrDtos=new Controlador_Alcohol_Y_Drogas; $mstrDtos->ctrMostrarServiciosFiltradosAD(); ?>
+      <?php $mstrDtos=new Controlador_Alcohol_Y_Drogas; $mstrDtos->ctrMostrarServiciosFiltradosAD(); 
+            $mstrDtos->ctrEnviarMail25x100to();?>
                   </tbody>
                   </table>
                 </div>

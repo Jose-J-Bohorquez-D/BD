@@ -27,3 +27,7 @@ $plantilla=new MvcControlador;
 $plantilla->pagina();
 ob_end_flush();
 ?>
+
+
+
+

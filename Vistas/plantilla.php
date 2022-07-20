@@ -43,6 +43,13 @@
   <!-- AdminLTE for demo purposes <script src="Vistas/dist/js/demo.js"></script>-->
   <!-- sweetAlert2 --><script src="Vistas/Js/sweetalert2-07052022.all.min.js"></script>
   </head>
+  <script type="text/javascript">
+    Swal.fire(
+  'Good job!',
+  'You clicked the button!',
+  'success'
+)
+  </script>
   <?php if (isset($_SESSION['iniciarSesion']) && $_SESSION['iniciarSesion'] == "ok") {
     echo '
   <body class="hold-transition sidebar-collapse sidebar-mini layout-fixed">
