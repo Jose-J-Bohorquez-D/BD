@@ -7,17 +7,6 @@ ob_end_clean();
 class PDF extends FPDF
 {
 
-
-    function ctlrRecibe_Servicio_A_facturar(){
-        if (isset($_GET["idFactura"])) {
-            $id_asignacion_servicio=$_GET["idFactura"];
-            $respuesta=GeneradorFacturasModelo::mdlRecibe_Servicio_A_facturar("servicios_asignados_vehiculos");
-            var_dump($respuesta);
-            #return $respuesta;
-        }
-    }
-
-
 // Cabecera de página
 function Header()
 {
@@ -61,6 +50,9 @@ function Header()
 // Pie de página
 function Footer()
 {
+    $this->Ln(150);//salto de linea
+    $this->SetFont('Arial','',10);
+    $this->Cell(55,8,utf8_decode('Proveedor de facturacion The Jungle Media'),0,0,'C');
     // Posición: a 1,5 cm del final
     $this->SetY(-15);
     // Arial italic 8
@@ -70,68 +62,68 @@ function Footer()
 }
 }
 
-$mysqli = new mysqli("localhost","root","","trucks2023"); 
-$consulta="SELECT sav.id_asignacion,sav.id_vehiculo,sav.id_servicio,sav.fecha_inicio_serv,sav.fecha_fin_serv,
-        sav.valor_servicio_asignado,v.id_vehiculo,v.placa,v.asignado_empresa,s.nombre_servicio,
-        c.id_cliente,c.nombre_empresa,c.nombre_cliente,c.direccion,c.tel1,c.email1 
-        FROM servicios_asignados_vehiculos sav
-        JOIN vehiculos v ON sav.id_asignacion = v.id_vehiculo
-        JOIN servicios s ON sav.id_servicio = s.id_servicio
-        JOIN clientes c ON v.asignado_empresa = c.nombre_empresa";
-$resultado=$mysqli->query($consulta);
-#var_dump($resultado);
+    $mysqli = new mysqli("localhost","root","","trucks2023"); 
+    $consulta="SELECT sav.id_asignacion,sav.id_vehiculo,sav.id_servicio,sav.fecha_inicio_serv,sav.fecha_fin_serv,
+            sav.valor_servicio_asignado,v.id_vehiculo,v.placa,v.asignado_empresa,s.nombre_servicio,
+            c.id_cliente,c.nombre_empresa,c.nombre_cliente,c.direccion,c.tel1,c.email1 
+            FROM servicios_asignados_vehiculos sav
+            JOIN vehiculos v ON sav.id_asignacion = v.id_vehiculo
+            JOIN servicios s ON sav.id_servicio = s.id_servicio
+            JOIN clientes c ON v.asignado_empresa = c.nombre_empresa";
+    $resultado=$mysqli->query($consulta);
+    #var_dump($resultado);
 
-$pdf = new PDF();
-$pdf->AliasNbPages();
-$pdf->AddPage();
+    $pdf = new PDF();
+    $pdf->AliasNbPages();
+    $pdf->AddPage();
 
-$row=$resultado->fetch_assoc();
-$pdf->Ln(10);//salto de linea
-#$pdf->SetFont('Arial','B',13);
-#$pdf->Cell(40,10,'Cliente:');
-$pdf->Ln(4);//salto de linea
-$pdf->SetFont('Arial','',8);
-$pdf->Cell(40,10,'Cliente: '.$row['nombre_empresa']);
-#$pdf->Ln(4);//salto de linea
-#$pdf->Cell(40,10,$row['nombre_empresa']);
-$pdf->Ln(4);//salto de linea
-$pdf->Cell(40,10,'Direccion: '.$row['direccion']);
-$pdf->Ln(4);//salto de linea
-$pdf->Cell(40,10,'Email: '.utf8_decode($row['email1']));
-$pdf->Ln(4);//salto de linea
-$pdf->Cell(40,10,'Telefono: '.$row['tel1']);
-$pdf->Ln(4);//salto de linea
-$pdf->Ln(4);//salto de linea
-$pdf->Ln(-22);//salto de linea
+    $row=$resultado->fetch_assoc();
+    $pdf->Ln(10);//salto de linea
+    #$pdf->SetFont('Arial','B',13);
+    #$pdf->Cell(40,10,'Cliente:');
+    $pdf->Ln(4);//salto de linea
+    $pdf->SetFont('Arial','',8);
+    $pdf->Cell(40,10,'Cliente: '.$row['nombre_empresa']);
+    #$pdf->Ln(4);//salto de linea
+    #$pdf->Cell(40,10,$row['nombre_empresa']);
+    $pdf->Ln(4);//salto de linea
+    $pdf->Cell(40,10,'Direccion: '.$row['direccion']);
+    $pdf->Ln(4);//salto de linea
+    $pdf->Cell(40,10,'Email: '.utf8_decode($row['email1']));
+    $pdf->Ln(4);//salto de linea
+    $pdf->Cell(40,10,'Telefono: '.$row['tel1']);
+    $pdf->Ln(4);//salto de linea
+    $pdf->Ln(4);//salto de linea
+    $pdf->Ln(-22);//salto de linea
 
-$pdf->Cell(100);
-$pdf->Cell(40,10,'Tipo Negociacion: Contado');
-$pdf->Ln(4);//salto de linea
-$pdf->Cell(100);
-$pdf->Cell(40,10,'Medio De Pago: Efectivo');
-$pdf->Ln(4);//salto de linea
-$pdf->Cell(100);
-$pdf->Cell(40,10,'Moneda: USD');
-$pdf->Ln(4);//salto de linea
-$pdf->Cell(100);
-$pdf->Cell(40,10,'Fecha y Hora Emicion: '.date('d-m-Y h:i:s a', time()),0,1);
-$pdf->Ln(4);//salto de linea
+    $pdf->Cell(100);
+    $pdf->Cell(40,10,'Tipo Negociacion: Contado');
+    $pdf->Ln(4);//salto de linea
+    $pdf->Cell(100);
+    $pdf->Cell(40,10,'Medio De Pago: Efectivo');
+    $pdf->Ln(4);//salto de linea
+    $pdf->Cell(100);
+    $pdf->Cell(40,10,'Moneda: USD');
+    $pdf->Ln(4);//salto de linea
+    $pdf->Cell(100);
+    $pdf->Cell(40,10,'Fecha y Hora Emicion: '.date('d-m-Y h:i:s a', time()),0,1);
+    $pdf->Ln(4);//salto de linea
 
 
 
-#$pdf->Cell(20);
-$pdf->Cell(6,7,'#',1,0,"C",0);
-$pdf->Cell(14,7,'Codigo',1,0,"C",0);
-$pdf->Cell(10,7,'Cant',1,0,"C",0);
-$pdf->Cell(70,7,'Descripcion',1,0,"C",0);
-$pdf->Cell(27,7,'Asigando Placa',1,0,"C",0);
-$pdf->Cell(27,7,'Unidad Medida',1,0,"C",0);
-$pdf->Cell(20,7,'Valor Unit',1,0,"C",0);
-$pdf->Cell(20,7,'Total',1,0,"C",0);
-$pdf->Ln(8);//salto de linea
+    #$pdf->Cell(20);
+    $pdf->Cell(6,7,'#',1,0,"C",0);
+    $pdf->Cell(14,7,'Codigo',1,0,"C",0);
+    $pdf->Cell(10,7,'Cant',1,0,"C",0);
+    $pdf->Cell(70,7,'Descripcion',1,0,"C",0);
+    $pdf->Cell(27,7,'Asigando Placa',1,0,"C",0);
+    $pdf->Cell(27,7,'Unidad Medida',1,0,"C",0);
+    $pdf->Cell(20,7,'Valor Unit',1,0,"C",0);
+    $pdf->Cell(20,7,'Total',1,0,"C",0);
+    $pdf->Ln(8);//salto de linea
 
 while ($row = $resultado->fetch_assoc()) {
-#    $pdf->Cell(20);
+    #$pdf->Cell(20);
     $pdf->Cell(6,7,$row['id_asignacion'],0,0,"C",0);
     $pdf->Cell(14,7,$row['id_servicio'],0,0,"C",0);
     $pdf->Cell(10,7,'1',0,0,"C",0);
@@ -144,16 +136,16 @@ while ($row = $resultado->fetch_assoc()) {
     $pdf->Cell(20,7,$row['valor_servicio_asignado'],0,1,"C",0);
     #$pdf->Ln(4);//salto de linea
 }
-$pdf->Ln(8);//salto de linea
-$pdf->Cell(155);
-$pdf->Cell(20,7,'IVA:',1,0,"C",0);
-$pdf->Cell(20,7,'19%',1,1,"C",0);
-$pdf->Cell(155);
-$pdf->Cell(20,7,'Subtotal:',1,0,"C",0);
-$pdf->Cell(20,7,utf8_decode(strval($total19x100to*2)),1,0,"C",0);
-$pdf->Cell(155);
-$pdf->Cell(20,7,'Total:',1,0,"C",0);
-$pdf->Cell(20,7,$row['valor_servicio_asignado'],1,0,"C",0);
+    $pdf->Ln(8);//salto de linea
+    $pdf->Cell(130);
+    $pdf->Cell(20,7,'IVA:',1,0,"C",0);
+    $pdf->Cell(40,7,'19%',1,1,"C",0);
+    $pdf->Cell(130);
+    $pdf->Cell(20,7,'Subtotal:',1,0,"C",0);
+    $pdf->Cell(40,7,'$'.$row['valor_servicio_asignado'],1,1,"C",0);
+    $pdf->Cell(130);
+    $pdf->Cell(20,7,'Total:',1,0,"C",0);
+    $pdf->Cell(40,7,'$'.$row['valor_servicio_asignado'],1,0,"C",0);
 
 $pdf->Output();
 ?>
