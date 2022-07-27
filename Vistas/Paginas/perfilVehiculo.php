@@ -83,3 +83,9 @@
     </div>
   </div>
 </div>
+
+<?php 
+#$mstrDatosFactura=new GeneradorDeFacturasControlador();
+#$mstrDatosFactura->ctlrRecibe_Servicio_A_facturar();
+#print_r($mstrDatosFactura);
+ ?>

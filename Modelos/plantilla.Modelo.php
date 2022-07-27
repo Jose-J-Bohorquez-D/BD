@@ -6,6 +6,7 @@ class Paginas{
     if ($enlacesModelo== "inicio" ||
         $enlacesModelo== "salir" ||
         $enlacesModelo== "perfiles" ||
+        $enlacesModelo== "factura" ||
         $enlacesModelo== "servicios" ||
         $enlacesModelo== "usuarios" ||
         $enlacesModelo== "clientes" ||
