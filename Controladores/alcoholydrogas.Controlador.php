@@ -9,7 +9,6 @@ class Controlador_Alcohol_Y_Drogas{
 			<td><a href="#" class="btn btn-info btn-sm">send mail</a href="#"></td>
 			<td>'.$value["nombre_empresa"].'</td>
 			<td>'.$value["nombre_cliente"].'</td>
-			<td>'.$value["email1"].'</td>
 			<td>'.$value["placa"].'</td>
 			<td>'.$value["nombre_servicio"].'</td>
 			<td>'.$value["fecha_inicio_serv"].'</td>
