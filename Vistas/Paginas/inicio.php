@@ -225,6 +225,37 @@ if (isset($_GET['action'])) {
   }
 }
 
+if (isset($_GET['action'])) {
+  if ($_GET['action']=="envioMailsOk") {
+    echo '
+        <script>
+
+        let timerInterval
+        Swal.fire({
+          title: "sending mails and inform the administrator!",
+          html: "In a moment it will be ready <b></b>",
+          timer: 3500,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector("b")
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+            history.back(-2)
+          }
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("I was closed by the timer")
+          }
+        })
+
+        </script>
+        ';
+  }
+}
+
 
 
 ?>

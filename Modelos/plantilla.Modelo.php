@@ -152,6 +152,12 @@ class Paginas{
 
     }
 
+    elseif ($enlacesModelo=="envioMailsOk") {
+
+      $newModulo="Vistas/Paginas/clientes.php";
+
+    }
+
     else {
 
       $newModulo="Vistas/Paginas/404.php";

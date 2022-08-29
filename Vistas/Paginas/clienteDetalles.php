@@ -296,7 +296,7 @@ $mstrDatos2->ctrMostrarDatos2DemasDts();
                   <table id ="example1" class="table table-sm table-bordered table-striped text-nowrap">
                     <thead>
                       <tr>
-                        <th><a href="index.php?action=clienteDetalles&ect=all" class="btn btn-warning btn-sm">send to all</a></th>
+                        <th><a href="<?php echo $_SERVER["REQUEST_URI"]; ?>&ect=sendAll" class="btn btn-warning btn-sm" type="submit">send to all</a></th>
                         <th>COMPANY NAME</th>
                         <th>CLIENT NAME</th>
                         <th>EMAIL</th>
